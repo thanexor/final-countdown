@@ -1,0 +1,439 @@
+/* ---------------------------------------------------------------------
+Original Author: Thane Woidan
+Contributors: N/A
+
+Target Browsers: All
+Media Type: Screen, Projection
+Width: All Sizes
+------------------------------------------------------------------------ */
+
+/* ---------------------------------------------------------------------
+RESET CSS (thanks Eric Meyer)
+------------------------------------------------------------------------ */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    vertical-align: baseline;
+}
+
+body {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+blockquote, q {
+    quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+:focus {
+    outline: 0;
+}
+
+/* apply a natural box layout model to all elements -- thanks Paul Irish */
+* { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
+
+/* Always show a vertical scrollbar, even when there is no scrolling */
+html {
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: none;
+    font-size: 12px;
+    color: #ffffff;
+}
+
+/* Basic font family */
+html, input, textarea, select, button {
+    font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 200;
+}
+
+body {
+    background: none transparent;
+    line-height: 1.4;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .8);
+}
+
+html, body, #front, #back {
+    width: 200px;
+    height: auto;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* ---------------------------------------------------------------------
+ HTML5 Block / Inline Block declarations
+------------------------------------------------------------------------ */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+audio, canvas, video {
+    display: inline-block;
+}
+
+/* ---------------------------------------------------------------------
+ Form Reset Styles
+------------------------------------------------------------------------ */
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration,
+input[type=search]::-webkit-search-results-button,
+input[type=search]::-webkit-search-results-decoration {
+    -webkit-appearance: none;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+    resize: vertical;
+}
+
+::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+input[type="date"]::-webkit-inner-spin-button{
+    display: none;
+}
+
+/* ---------------------------------------------------------------------
+ Containers
+------------------------------------------------------------------------ */
+.wrap {
+    position: relative;
+    width: 200px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #111111;
+}
+
+.wrap-inner {
+    width: 100%;
+    padding: 2px 10px;
+    border: 3px solid rgba(0, 0, 0, .75);
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+}
+
+.wrap-inner_padded {
+    padding: 10px;
+}
+
+.wrap-inner_depth {
+    background-position: center center; /* for custom image URLs */
+    background-color: transparent;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .15)), to(rgba(255,255,255,0))); /* Chrome, Safari 4+ */
+    background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .15), rgba(255,255,255,0)); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+    background-image:    -moz-linear-gradient(top, rgba(255, 255, 255, .15), rgba(255,255,255,0)); /* Firefox 3.6-15 */
+    background-image:      -o-linear-gradient(top, rgba(255, 255, 255, .15), rgba(255,255,255,0)); /* Opera 11.10-12.00 */
+    background-image:         linear-gradient(to bottom, rgba(255, 255, 255, .15), rgba(255,255,255,0)); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+    box-shadow: 0 1px 1px rgba(255, 255, 255, .25) inset,
+                0 -2px 3px rgba(0, 0, 0, .25) inset;
+}
+
+.wrap-inner_pattern {
+    background-image: url(linen.png);
+    background-clip: border-box;
+}
+
+#front {
+    display: block;
+}
+
+#back {
+    display: none;
+}
+
+/* ---------------------------------------------------------------------
+ Grids
+------------------------------------------------------------------------ */
+.grid {
+    clear: both;
+    position: relative;
+}
+
+.grid:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    visibility: hidden;
+}
+
+.grid-col {
+    float: left;
+    padding: 0 1.01466%;
+}
+
+.grid-col_1of12  { width: 8.33333%; }
+.grid-col_2of12  { width: 16.66666%; }
+.grid-col_3of12  { width: 25%; }
+.grid-col_4of12  { width: 33.33333%; }
+.grid-col_5of12  { width: 41.66666%; }
+.grid-col_6of12  { width: 50%; }
+.grid-col_7of12  { width: 58.33333%; }
+.grid-col_8of12  { width: 66.66666%; }
+.grid-col_9of12  { width: 75%; }
+.grid-col_10of12 { width: 83.33333%; }
+.grid-col_11of12 { width: 91.66666%; }
+.grid-col_12of12 { width: 100%; }
+
+/* ----- Column variations ----- */
+.grid-col-solid { background-color: #ffffff; }
+.grid-col-thin  { padding: 0; }
+.grid-col-centerInRow {
+    margin: 0 auto;
+    float: none;
+}
+
+.grid_vcenter {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+/* ---------------------------------------------------------------------
+ Headings
+------------------------------------------------------------------------ */
+.hdg {
+    text-shadow: 0 1px #000000;
+    line-height: 1.1;
+}
+
+.hdg_h1 { font-size: 16px; }
+
+.mix-hdg_center { text-align: center; }
+.mix-hdg_thin {
+    font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    letter-spacing: .075em;
+    font-weight: 100;
+}
+
+/* ---------------------------------------------------------------------
+ Headers (contain instances of .hdg)
+------------------------------------------------------------------------ */
+.hdr {
+    margin: 5px 0;
+    position: relative;
+    z-index: 5;
+}
+
+.hdr_min { margin: 0; }
+.hdr_emphasisMed { margin: 8px 0; }
+.hdr_leading     { margin: 10px 0 0; }
+
+.hdr_pad { padding: 0 5px; }
+.hdr_padMed { padding: 0 8px; }
+
+.hdr_dateinfo {
+    height: 90px;
+    padding: 20px 0 0;
+    margin: -5px 0 0;
+}
+
+.mix-hdr_center { text-align: center; }
+.mix-hdr_right  { text-align: right; }
+
+
+/* ---------------------------------------------------------------------
+ Lists
+------------------------------------------------------------------------ */
+.hList {
+
+}
+
+.hList > * {
+    display: inline-block;
+}
+
+.hList_emphasis { margin-top: 32px; }
+
+.mix-hList_vcenter > * { vertical-align: middle; }
+
+/* ---------------------------------------------------------------------
+ Content Stuff
+------------------------------------------------------------------------ */
+.text_tiny {
+    font-size: 9px;
+    line-height: 1;
+}
+
+.text_large {
+    font-size: 18px;
+}
+
+.text_tiny:empty {
+    height: 0;
+}
+
+.mix-text_oneline { white-space: nowrap; }
+.mix-text_upper   { text-transform: uppercase; }
+.mix-text_hilight { color: #bada55; }
+.mix-text_muted   { color: #cccccc; }
+
+/* ---------------------------------------------------------------------
+ Form elements
+------------------------------------------------------------------------ */
+.inpt {
+    height: 28px;
+    padding: 5px;
+    margin: 5px 2px;
+    border: 1px solid #444444;
+    border-color: #333333 #555555 #666666 #444444;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    border-radius: 3px;
+    background: none rgba(255, 255, 255, .15);
+    color: #ffffff;
+    font-size: 11px;
+}
+
+.inpt_sml { width: 95px; }
+.inpt_med { width: 170px; }
+
+.label-date {
+    display: none;
+}
+
+/* ---------------------------------------------------------------------
+ Buttons
+------------------------------------------------------------------------ */
+.btnWrap_info {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+}
+
+
+/* ---------------------------------------------------------------------
+ Day Progress Indicator
+------------------------------------------------------------------------ */
+.progress {
+    width: 100px;
+    height: 100px;
+    margin-top: -15px;
+    position: absolute;
+    left: 50px;
+    z-index: 2;
+    opacity: .85;
+}
+
+.progress_isBeforeHalf {
+    clip: rect(0, 100px, 100px, 50px);
+}
+
+.progress-circle {
+    width: 100px;
+    height: 100px;
+    border: 20px solid #333333;
+    border-radius: 50%;
+    position: absolute;
+    clip: rect(0, 50px, 100px, 0);
+
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.progress-circle_firsthalf {
+    -webkit-transform: rotate(0deg); /* goes from 0 to 180 degrees for 0-50% */
+}
+
+.progress-circle_lasthalf {
+    -webkit-transform: rotate(180deg); /* goes from 180 to 360 degrees for 50-100% */
+}
+
+.progress_isBeforeHalf .progress-circle_lasthalf {
+    visibility: hidden;
+}
+
+.progress-hand {
+    height: 100px;
+    width: 100px;
+    display: block;
+    position: relative;
+    z-index: 5;
+
+    -webkit-transform: rotate(0deg);
+}
+
+.progress_isBeforeHalf .progress-hand {
+    left: 3px;
+}
+
+.progress-hand-inner {
+    height: 30px;
+    width: 3px;
+    display: block;
+    margin-left: 50px;
+    background-color: #6D8032;
+
+    -webkit-animation-name: 'pulsate';
+    -webkit-animation-duration: 1s;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 1s;
+
+    animation-name: 'pulsate';
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: 1s;
+}
+
+/* ---------------------------------------------------------------------
+ Second-interval pulsator
+------------------------------------------------------------------------ */
+@-webkit-keyframes pulsate {
+    0%   { opacity: 0.75; }
+    78%  { opacity: 0.75; }
+    80%  { opacity: 1; }
+    82%  { opacity: 0.9; }
+    100% { opacity: 0.75; }
+}
+
+@keyframes pulsate {
+    0%   { opacity: 0.75; }
+    78%  { opacity: 0.75; }
+    80%  { opacity: 1; }
+    82%  { opacity: 0.9; }
+    100% { opacity: 0.75; }
+}

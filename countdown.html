@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- META DATA -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- CSS -->
+    <link type="text/css" href="styles.css" rel="stylesheet" />
+
+    <!-- Countdown JS -->
+    <script type="text/javascript" src="countdown.js"></script>
+
+    <!-- Apple Widget JS -->
+    <!--<script type="text/javascript" src="file:///System/Library/WidgetResources/AppleClasses/AppleInfoButton.js"></script>
+    <script type="text/javascript" src="file:///System/Library/WidgetResources/AppleClasses/AppleButton.js"></script>
+    <script type="text/javascript" src="file:///System/Library/WidgetResources/AppleClasses/AppleAnimator.js"></script>-->
+
+    <script type="text/javascript" src="lib-apple/AppleInfoButton.js"></script>
+    <script type="text/javascript" src="lib-apple/AppleAnimator.js"></script>
+    <script type="text/javascript" src="lib-apple/AppleButton.js"></script>
+</head>
+
+<body onload="Loader();">
+    <div id="front">
+        <div class="wrap">
+            <div class="wrap-inner wrap-inner_padded wrap-inner_depth" id="js-frontcontent">
+                <!-- title -->
+                <div class="hdr mix-hdr_center">
+                    <h1 class="hdg hdg_h1 mix-hdg_thin" id="js-eventtitle">Flip to add event</h1>
+                </div>
+
+                <!-- progress circle -->
+                <div class="progress progress_isBeforeHalf" id="js-progress">
+                    <span class="progress-circle progress-circle_firsthalf" id="js-progress-firsthalf"></span>
+                    <span class="progress-circle progress-circle_lasthalf" id="js-progress-lasthalf"></span>
+                    <span class="progress-hand" id="js-progress-hand"><span class="progress-hand-inner"></span></span>
+                </div>
+
+
+
+                <!-- days left and date -->
+                <div class="hdr hdr_dateinfo mix-hdr_center">
+                    <p class="mix-text_hilight text_large mix-text_oneline mix-text_thin"><span id="js-timeleft">Today</span> <span class="label-date" id="js-daylabel">Days</span></p>
+                    <p class="text_tiny text_overlap mix-text_muted mix-text_upper mix-text_oneline"><span id="js-datedisplay"></span></p>
+                </div>
+            </div>
+            <div id="js-infobutton" class="btnWrap_info"></div>
+        </div>
+    </div>
+    <div id="back">
+        <div class="wrap">
+            <div class="wrap-inner wrap-inner_pattern" id="js-backcontent">
+                <form id="js-countdownform">
+                    <ul class="hList mix-hList_vcenter">
+                        <li>
+                            <input class="inpt inpt_med" type="text" placeholder="Event title" id="js-titlevalue" />
+                        </li>
+                        <li>
+                            <input class="inpt inpt_med" type="text" placeholder="Background URL (optional)" id="js-bgvalue" />
+                        </li>
+                        <li>
+                            <input class="inpt inpt_sml" type="text" placeholder="YYYY/MM/DD" id="js-datevalue" />
+                        </li>
+                        <li>
+                            <div id="js-saveevent">
+
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
